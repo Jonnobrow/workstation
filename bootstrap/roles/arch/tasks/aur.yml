@@ -1,0 +1,23 @@
+---
+
+- name: "aur : Create the `aur_builder` user"
+  become: yes
+  ansible.builtin.user:
+    name: aur_builder
+    create_home: yes
+    group: wheel
+
+- name: "aur : Allow the `aur_builder` user to run `sudo pacman` without a password"
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    validate: 'visudo -cf %s'
+
+- name: "aur : Install an AUR helper."
+  kewlfft.aur.aur:
+    name: paru
+    use: makepkg
+    state: present
+  become_user: aur_builder

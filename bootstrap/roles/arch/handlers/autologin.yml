@@ -1,0 +1,5 @@
+---
+
+- name: "autologin : reload getty"
+  state: reloaded
+  enabled: yes

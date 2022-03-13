@@ -1,0 +1,19 @@
+---
+# Install an AUR Helper (paru)
+- include_tasks: aur.yml
+
+# Setup a superuser
+- include_tasks: user.yml
+- include_tasks: autologin.yml
+
+# Blacklist kernel modules
+- include_tasks: kernel.yml
+
+# Reflector
+- include_tasks: reflector.yml
+
+# Packages
+- include_tasks: packages.yml
+
+# Sway
+- include_tasks: sway.yml

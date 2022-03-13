@@ -1,0 +1,6 @@
+---
+
+- name: "packages : Install packages"
+  package:
+    name: "{{ arch_installed_packages }}"
+    state: latest

@@ -1,0 +1,23 @@
+---
+
+- name: "reflector : Install reflector"
+  package:
+    name: reflector
+    state: present
+
+- name: "reflector : Ensure config dir exists"
+  file:
+    path: /etc/xdg/reflector
+    state: directory
+    mode: '0755'
+
+- name: "reflector : Install config"
+  template:
+    src: reflector.conf.j2
+    dest: /etc/xdg/reflector/reflector.conf
+
+- name: "reflector : Enable service"
+  ansible.builtin.systemd:
+    name: reflector.timer
+    state: started
+    enabled: yes

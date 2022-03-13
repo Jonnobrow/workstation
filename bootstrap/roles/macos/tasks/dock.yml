@@ -1,0 +1,68 @@
+---
+- name: "dock : Position"
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: orientation
+    type: string
+    value: "left"
+
+- name: "dock : Size"
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: tilesize
+    type: int
+    value: 36
+
+- name: "dock : Don't show recents"
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: show-recents
+    type: bool
+    value: false
+
+- name: "dock : Autohide"
+  block:
+    - community.general.osx_defaults:
+        domain: com.apple.dock
+        key: autohide
+        type: bool
+        value: true
+    - community.general.osx_defaults:
+        domain: com.apple.dock
+        key: autohide-time-modifier
+        type: float
+        value: 0
+    - community.general.osx_defaults:
+        domain: com.apple.dock
+        key: autohide-delay
+        type: float
+        value: 0
+
+- name: "dock : Minimize windows into application icon"
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: minimize-to-application
+    type: bool
+    value: true
+
+- name: "dock : Wipe default app icons"
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: persitent-apps
+    type: array
+    value: 
+
+- name: "dock : Open apps only"
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: static-only
+    type: bool
+    value: true
+
+- name: "dock : Don't re-arrange spaces based on use"
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: mru-spaces
+    type: bool
+    value: false
+

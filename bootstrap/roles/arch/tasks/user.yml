@@ -1,0 +1,30 @@
+---
+# Configures a new superuser
+
+- name: "users : Install sudo."
+  package:
+    name: sudo
+    state: present
+
+- name: "users : Create wheel group."
+  group:
+    name: wheel
+    state: present
+
+- name: "users : Add primary user."
+  ansible.builtin.user:
+    name: "{{ username }}"
+    password: "{{ password | password_hash('sha512', 65534 | random(seed=inventory_hostname) | string) }}"
+    uid: "1000"
+    create_home: yes
+    groups: wheel
+    state: present
+    shell: "{{ shell }}"
+
+- name: "users : Edit sudoers file."
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL:ALL) ALL'
+    validate: visudo -cf %s

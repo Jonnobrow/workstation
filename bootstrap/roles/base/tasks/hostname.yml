@@ -1,0 +1,5 @@
+---
+
+- name: "hostname : Set Hostname"
+  ansible.builtin.hostname:
+    name: "{{ hostname }}" 

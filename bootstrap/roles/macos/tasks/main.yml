@@ -1,0 +1,5 @@
+---
+
+- include_tasks: dock.yml
+- include_tasks: key_repeat.yml
+- include_tasks: locale.yml

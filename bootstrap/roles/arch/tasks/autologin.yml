@@ -1,0 +1,25 @@
+---
+
+- name: "autologin : Ensure util-linux installed."
+  package:
+    name: util-linux
+    state: present
+
+- name: "autologin : Ensure getty@tty1.service.d exists."
+  file:
+    path: /etc/systemd/system/getty@tty1.service.d
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+
+- name: "autologin : Create dropin file for main user."
+  template:
+    src: autologin.conf.j2
+    dest: /etc/systemd/system/getty@tty1.service.d/autologin.conf
+    mode: '0644'
+    owner: root
+    group: root
+  notify:
+    - "autologin : reload getty"
+

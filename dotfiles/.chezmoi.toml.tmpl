@@ -1,0 +1,25 @@
+{{- $email := "" -}}
+{{- $gpg_keyid := "" -}}
+
+{{- if not (env "BOOTSTRAP") }}
+{{-   if hasKey . "email" -}}
+{{-     $email = .email -}}
+{{-   else -}}
+{{-     $email = promptString "email" -}}
+{{-   end -}}
+{{-   if hasKey . "gpg_keyid" -}}
+{{-     $gpg_keyid = .gpg_keyid -}}
+{{-   else -}}
+{{-     $gpg_keyid = promptString "gpg_keyid" -}}
+{{-   end -}}
+{{- end -}}
+
+[data]
+	name = "Jonathan Bartlett"
+	email = {{ $email | quote }}
+	gpg_keyid = {{ $gpg_keyid | quote }}
+
+{{- if not (env "BOOTSTRAP") }}
+[keepassxc]
+	database = "{{ .chezmoi.homeDir }}/dirs/doc/keepass/keepass.kdbx"
+{{- end -}}

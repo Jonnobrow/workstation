@@ -1,0 +1,20 @@
+---
+
+- name: "key_repeat : InitialKeyRepeat"
+  community.general.osx_defaults:
+    key: InitialKeyRepeat
+    type: int
+    value: 10
+
+- name: "key_repeat : KeyRepeat"
+  community.general.osx_defaults:
+    key: KeyRepeat
+    type: int
+    value: 2
+
+- name: "key_repeat : Disable pree and hold"
+  community.general.osx_defaults:
+    key: ApplePressAndHoldEnabled
+    type: bool
+    value: false
+

@@ -1,0 +1,24 @@
+---
+- name: "locale : Language"
+  community.general.osx_defaults:
+    key: AppleLanguages
+    type: array
+    value: "{{ locale.language }}"
+
+- name: "locale : Locale"
+  community.general.osx_defaults:
+    key: AppleLocale
+    type: string
+    value: "{{ locale.locale }}@currency={{ locale.currency}}"
+
+- name: "locale : Measurement Units"
+  community.general.osx_defaults:
+    key: AppleMeasurementUnits
+    type: string
+    value: "{{ locale.units }}"
+
+- name: "locale : Metric Units"
+  community.general.osx_defaults:
+    key: AppleMetricUnits
+    type: bool
+    value: "{{ locale.metric }}"

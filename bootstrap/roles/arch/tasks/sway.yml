@@ -1,0 +1,24 @@
+---
+
+- name: "sway : Install Sway and Dependencies"
+  package:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - sway
+    - swaylock
+    - grim
+    - slurp
+    - mako
+    - swayidle
+    - xorg-xwayland
+    - waybar
+
+- name: "sway : Install Wayland GUI Libraries"
+  package:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - qt5-wayland
+    - qt6-wayland
+    - glfw-wayland

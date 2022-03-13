@@ -1,0 +1,17 @@
+---
+- name: "directories : Ensure key directories exist"
+  file:
+    path: "{{ lookup('env', 'HOME') }}/{{ item }}"
+    state: directory
+    owner: "{{ username }}"
+  loop:
+    - ".config"
+    - ".local/share"
+    - ".local/state/zsh"
+    - ".cache"
+    - "dirs/dl"
+    - "dirs/m"
+    - "dirs/p"
+    - "dirs/v"
+    - "dirs/proj"
+    - "dirs/doc/keepass"

@@ -1,0 +1,72 @@
+---
+# Superuser Username
+username: jb
+
+# Kernel Modules
+blacklisted_modules:
+  - pcspkr
+
+# Shell
+shell: /bin/zsh
+
+# Locale
+locale:
+  timezone: Europe/London 
+  language: "en"
+  locale: "en_GB"
+  currency: "GBP"
+  units: "Centimeters"
+  metric: true
+
+# MacOS
+homebrew_installed_packages:
+  - bat
+  - chezmoi
+  - exa
+  - fd
+  - fzf
+  - git
+  - git-delta
+  - kubernetes-cli
+  - neovim
+  - ripgrep
+  - tealdeer
+  - pipenv
+  - docker
+  - rbenv
+  - imagemagick
+
+homebrew_tasks:
+  - homebrew/core
+  - homebrew/cask
+  - homebrew/cask-fonts
+
+homebrew_cask_apps:
+  - keepassxc
+  - kitty
+  - slack
+  - spotify
+  - firefox
+  - font-hack-nerd-font
+
+mas_installed_apps: []
+mas_email: ""
+mas_password: ""
+
+# Arch Packages
+arch_installed_packages:
+  - bat
+  - chezmoi
+  - exa
+  - fd
+  - fzf
+  - git
+  - neovim
+  - ripgrep
+  - tealdeer
+  - docker
+  - imagemagick
+
+# Python Packages
+python_packages:
+  - pywal

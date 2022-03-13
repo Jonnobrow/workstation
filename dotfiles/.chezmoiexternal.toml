@@ -1,0 +1,5 @@
+[".local/share/zsh/powerlevel10k"]
+    type = "archive"
+    url = "https://github.com/romkatv/powerlevel10k/archive/v1.16.1.tar.gz"
+    exact = true
+    stripComponents = 1
