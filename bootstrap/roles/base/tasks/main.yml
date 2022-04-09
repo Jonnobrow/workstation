@@ -1,9 +1,10 @@
 ---
-
 - include_tasks: hostname.yml
 - include_tasks: timezone.yml
+- include_tasks: locale.yml
 
 # Packages
 - include_tasks: python.yml
+- include_tasks: node.yml
 
 - include_tasks: directories.yml

@@ -11,9 +11,9 @@ shell: /bin/zsh
 
 # Locale
 locale:
-  timezone: Europe/London 
+  timezone: Europe/London
   language: "en"
-  locale: "en_GB"
+  locale: "en_GB.UTF-8"
   currency: "GBP"
   units: "Centimeters"
   metric: true
@@ -33,10 +33,11 @@ homebrew_installed_packages:
   - tealdeer
   - pipenv
   - docker
-  - rbenv
   - imagemagick
+  - yarn
+  - node
 
-homebrew_tasks:
+homebrew_taps:
   - homebrew/core
   - homebrew/cask
   - homebrew/cask-fonts
@@ -48,6 +49,9 @@ homebrew_cask_apps:
   - spotify
   - firefox
   - font-hack-nerd-font
+  - terraform
+  - stylua
+  - shfmt
 
 mas_installed_apps: []
 mas_email: ""
@@ -66,7 +70,23 @@ arch_installed_packages:
   - tealdeer
   - docker
   - imagemagick
+  - terraform
+  - stylua
+  - shfmt
+  - nodejs
+  - npm
+  - yarn
 
 # Python Packages
 python_packages:
   - pywal
+  - pynvim
+  - yamllint
+
+node_packages:
+  - fixjson
+  - eslint_d
+  - shellcheck
+  - markdownlint-cli
+  - "@fsouza/prettierd"
+  - neovim

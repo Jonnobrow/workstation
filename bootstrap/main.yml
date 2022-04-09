@@ -12,7 +12,6 @@
     - name: hostname
       prompt: "Enter the desired hostname for this device"
   roles:
-    - name: base
     # Configure Arch Linux
     - name: arch
       when: ansible_facts['os_family'] == 'Archlinux'
@@ -23,3 +22,5 @@
       when: ansible_facts['os_family'] == 'Darwin'
     - name: geerlingguy.mac.mas
       when: ansible_facts['os_family'] == 'Darwin'
+    # Configure Common
+    - name: base

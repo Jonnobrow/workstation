@@ -1,0 +1,7 @@
+---
+- name: "node : Install NodeJS Packages"
+  community.general.yarn:
+    name: "{{ item }}"
+    global: yes
+    state: present
+  loop: "{{ node_packages }}"

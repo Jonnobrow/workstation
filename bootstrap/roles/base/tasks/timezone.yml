@@ -1,5 +1,4 @@
 ---
-
 - name: "timezone : Set timezone"
   community.general.timezone:
     name: "{{ locale.timezone }}"

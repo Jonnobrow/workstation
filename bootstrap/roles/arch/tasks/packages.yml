@@ -1,6 +1,6 @@
 ---
 
 - name: "packages : Install packages"
-  package:
+  kewlfft.aur.aur:
     name: "{{ arch_installed_packages }}"
     state: latest
