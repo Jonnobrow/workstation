@@ -20,3 +20,12 @@ source ~/.cache/wal/colors-tty.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+# FZF
+if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
+fi
+[[ $- == *i* ]] && source_if_exists "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source_if_exists "/usr/share/fzf/shell/completion.zsh" 2> /dev/null
+source_if_exists "/usr/local/opt/fzf/shell/key-bindings.zsh"
+source_if_exists "/usr/share/fzf/key-bindings.zsh"
