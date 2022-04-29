@@ -3,7 +3,7 @@
   community.general.osx_defaults:
     key: AppleLanguages
     type: array
-    value: "{{ locale.language }}"
+    value: ["{{ locale.language }}"]
 
 - name: "locale : Locale"
   community.general.osx_defaults:

@@ -1,4 +1,6 @@
 ---
+- include_tasks: locale.yml
+
 # Install an AUR Helper (paru)
 - include_tasks: aur.yml
 

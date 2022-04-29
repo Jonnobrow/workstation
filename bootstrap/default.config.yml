@@ -1,6 +1,6 @@
 ---
 # Superuser Username
-username: jb
+username: jbl76
 
 # Kernel Modules
 blacklisted_modules:
@@ -19,6 +19,8 @@ locale:
   metric: true
 
 # MacOS
+homebrew_user: "{{ username }}"
+homebrew_group: "staff"
 homebrew_installed_packages:
   - bat
   - chezmoi
@@ -47,7 +49,7 @@ homebrew_cask_apps:
   - kitty
   - slack
   - spotify
-  - firefox
+    #  - firefox
   - font-hack-nerd-font
   - terraform
   - stylua

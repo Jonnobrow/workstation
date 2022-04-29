@@ -11,6 +11,7 @@
       unsafe: yes
     - name: hostname
       prompt: "Enter the desired hostname for this device"
+
   roles:
     # Configure Arch Linux
     - name: arch

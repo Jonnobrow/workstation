@@ -50,7 +50,7 @@
     domain: com.apple.dock
     key: persitent-apps
     type: array
-    value: 
+    value: []
 
 - name: "dock : Open apps only"
   community.general.osx_defaults:
@@ -65,4 +65,3 @@
     key: mru-spaces
     type: bool
     value: false
-

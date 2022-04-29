@@ -23,7 +23,7 @@ alias_if_exists pbpaste wl-paste
 
 # Pacman/AUR
 alias pins="paru -Slq | fzf -m --preview 'bat --style=numbers --color=always --line-range :500 -l bash <(paru -Si {1}) <(paru -Fl {1} | awk \"{print \$2}\")' | xargs -ro paru -S"
-alias pacro="paru -Rns $(pacman -Qtdq)"
+alias pacro='paru -Rns $(pacman -Qtdq)'
 
 # Folders
 alias work="$HOME/dirs/proj/work"

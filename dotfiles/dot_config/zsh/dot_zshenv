@@ -46,6 +46,7 @@ export SUDO_EDITOR="nvim"
 # Path #
 ########
 export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 #############
 # Man Pager #
