@@ -1,17 +1,6 @@
 ---
 - hosts: all
 
-  vars_files:
-    - default.config.yml
-
-  vars_prompt:
-    - name: password
-      prompt: "What is your main user password?"
-      private: yes
-      unsafe: yes
-    - name: hostname
-      prompt: "Enter the desired hostname for this device"
-
   roles:
     # Configure Arch Linux
     - name: arch

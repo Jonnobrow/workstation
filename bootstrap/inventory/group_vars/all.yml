@@ -1,0 +1,30 @@
+---
+# Kernel Modules
+blacklisted_modules:
+  - pcspkr
+
+# Shell
+shell: /bin/zsh
+
+# Locale
+locale:
+  timezone: Europe/London
+  language: "en"
+  locale: "en_GB.UTF-8"
+  currency: "GBP"
+  units: "Centimeters"
+  metric: true
+
+# Python Packages
+python_packages:
+  - pywal
+  - pynvim
+  - yamllint
+
+node_packages:
+  - fixjson
+  - eslint_d
+  - shellcheck
+  - markdownlint-cli
+  - "@fsouza/prettierd"
+  - neovim

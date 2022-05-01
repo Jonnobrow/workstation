@@ -1,8 +1,8 @@
 # Helper Function
 function alias_if_exists() { command -v $2 > /dev/null && alias $1=$2; }
 
-# Kitty
-alias kitty='kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty'
+# SSH
+alias s='kitty +kitten ssh'
 
 # Yarn
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'

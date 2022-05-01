@@ -1,0 +1,22 @@
+---
+all:
+  hosts:
+    jblp:
+      ansible_host: localhost
+      ansible_connection: local
+      hostname: jblp
+    jbpc:
+      ansible_host: localhost
+      ansible_connection: local
+      hostname: jbpc
+    jbmbp:
+      ansible_host: localhost
+      ansible_connection: local
+  children:
+    home:
+      hosts:
+        jblp:
+        jbpc:
+    work:
+      hosts:
+        jbmbp:

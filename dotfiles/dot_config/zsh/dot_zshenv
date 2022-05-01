@@ -47,6 +47,8 @@ export SUDO_EDITOR="nvim"
 ########
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:/opt/homebrew/bin"
+export PATH="$PATH:$HOME/Library/Python/3.8/bin"
 
 #############
 # Man Pager #
@@ -75,3 +77,8 @@ export SDL_VIDEODRIVER=wayland
 # SSH #
 #######
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+#######
+# GPG #
+#######
+export GPG_TTY=$(tty)

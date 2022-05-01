@@ -1,0 +1,27 @@
+---
+- name: "yabai : Ensure sudoers file."
+  file:
+    path: /private/etc/sudoers.d/yabai
+    state: touch
+    owner: root
+
+- name: "yabai : Edit sudoers file."
+  lineinfile:
+    dest: /private/etc/sudoers.d/yabai
+    state: present
+    line: "{{username}} ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa"
+    validate: visudo -cf %s
+
+- name: Register a variable
+  ansible.builtin.shell: brew services list | grep {{ item }}
+  register: service_state[{{item}}]
+  loop:
+    - yabai
+    - shkd
+
+- name: "yabai : Enable {{ item }} service."
+  ansible.builtin.shell: brew services start {{ item }}
+  loop:
+    - yabai
+    - shkd
+  when: service_state[{{item}}].stdout.find('started') == -1

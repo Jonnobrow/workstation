@@ -1,5 +1,7 @@
 ---
-
 - include_tasks: dock.yml
 - include_tasks: key_repeat.yml
 - include_tasks: locale.yml
+- include_tasks: screencapture.yml
+- include_tasks: java.yml
+- include_tasks: yabai.yml

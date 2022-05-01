@@ -1,0 +1,14 @@
+---
+
+- name: "Java - Install OpenJDK"
+  homebrew:
+    name: openjdk@11
+    state: latest
+
+- name: "Java - Symlink OpenJDK"
+  ansible.builtin.file:
+    src: "{{homebrew_prefix}}/opt/openjdk@11/libexec/openjdk.jdk"
+    dest: /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+    owner: "{{ username }}"
+    group: "staff"
+    state: link

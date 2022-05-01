@@ -8,7 +8,7 @@ _**Do not use this as is. Clone and modify to suit your needs**_
 
 1. Download and boot an [arch linux iso](https://archlinux.org/download/)
 2. Use [archinstall](https://github.com/archlinux/archinstall) with the config in this repo:
-	
+
 	```shell
 	archinstall --config https://github.com/jonnobrow/workstation/blob/main/archinstall.json
 	```
@@ -17,13 +17,13 @@ _**Do not use this as is. Clone and modify to suit your needs**_
 
 3. Reboot and login as root
 4. Initialize [Chezmoi](https://www.chezmoi.io/)
-	
+
 	```shell
 	BOOTSTRAP=true chezmoi init https://github.com/jonnobrow/workstation.git
 	```
 
 5. Switch to the chezmoi directory, then the playbook directory.
-	
+
 	```shell
 	chezmoi cd
 	cd bootstrap
@@ -38,3 +38,7 @@ _**Do not use this as is. Clone and modify to suit your needs**_
 ## (MacOS) Install Guide
 
 1. [Disable System Integrity Protection](https://github.com/koekeishiya/yabai/wiki/Disabling-System-Integrity-Protection)
+2. Install Ansible (`sudo pip3 install ansible`)
+3. Clone this repository (`git clone https://github.com/jonnobrow/workstation.git ~/.local/share/chezmoi`)
+4. Run the playbook (`ansible-playbook main.yml`)
+5. Insert and install GPG Key (See: [gpg2-util](https://github.com/jonnobrow/gpg2-util))
