@@ -20,6 +20,7 @@ python_packages:
   - pywal
   - pynvim
   - yamllint
+  - proselint
 
 node_packages:
   - fixjson
@@ -28,3 +29,8 @@ node_packages:
   - markdownlint-cli
   - "@fsouza/prettierd"
   - neovim
+
+ruby_gems:
+  - puppet-lint
+  - eyaml
+  - erb_lint

@@ -5,5 +5,6 @@
 # Packages
 - include_tasks: python.yml
 - include_tasks: node.yml
+- include_tasks: ruby.yml
 
 - include_tasks: directories.yml

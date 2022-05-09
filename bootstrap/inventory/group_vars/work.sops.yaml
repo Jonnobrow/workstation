@@ -31,6 +31,8 @@ homebrew_installed_packages:
     - ENC[AES256_GCM,data:qPCJD9ctLg==,iv:QDgX4iiVfp/31nv+yeoLEtSzQSl8R6PFLJHVY/56O1g=,tag:pV8b/4LWCEsy0cqgX9iuFQ==,type:str]
     - ENC[AES256_GCM,data:vUCrKw==,iv:DzwYXNjUxWBUFX2xUCe1ZwyfBDbyeIr+IL7tiA6R2LM=,tag:/uvBIEZxxNaoT7AG8KS58Q==,type:str]
     - ENC[AES256_GCM,data:+PBtIJI=,iv:EEZKwrcdQfXTi/wps2gvEBQvqS6l0JMPxetr6bxy2Q4=,tag:vIAzl39gpdUjLxvlZo/Kqg==,type:str]
+    - ENC[AES256_GCM,data:1GRpHWk=,iv:iwcjy8Nu7kje38AXfoONB9cwUbdpAoJAP1/nXecwkug=,tag:y21IK5fBh1I/DwAkqLu0tg==,type:str]
+    - ENC[AES256_GCM,data:Mg2JoihIBfJYgw==,iv:qU/8Y/ghcPm/DX536N+1k8zkhFZ3+OWCU0GSKDMT57w=,tag:+Cju3rU6MuVSw2GuARC38A==,type:str]
 homebrew_taps:
     - ENC[AES256_GCM,data:a1EAHDO4jpAz8p43Pw==,iv:tEXXhyGfPGPeg2tJ55+AF5A8TkfifOKtyw/iM3ruZEU=,tag:OU8jqiSR+0oCmBMu4sWIzQ==,type:str]
     - ENC[AES256_GCM,data:P/rkb5/6t5n/a1arVg==,iv:nSNiXmZnhU5FgOZNwD/k+bQUPzY9oVFZsr7hMn0VCR4=,tag:5//xEeNV/NnMkiB9EHKg2Q==,type:str]
@@ -60,8 +62,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-04-30T20:01:43Z"
-    mac: ENC[AES256_GCM,data:aPWI5lzTaukkJX1wcJCr4IgzX36LdpE/PdkO+It3+erzaavWxiEgU0ashFhnSpfsDEMkgccR7ERtqQ6Icmc+TU1BStOzi5t0mNCuk03HvtKhQLQ3BUj2kSxs/7KHfQ2j1FrnhZAUMnyW6TY5epkZVioLBW0AKWu9ZhNPTU765Fs=,iv:4BqFTuv1HRbM+7kmHMvJG5QpnrOjWJpWIFfHRa10E9I=,tag:5BOknApOclswJTKrVO1TlA==,type:str]
+    lastmodified: "2022-05-01T14:43:18Z"
+    mac: ENC[AES256_GCM,data:qM//1GXbDxKcGLNAR9fXdiX3fbltOjvzcNE4FEn7WGHxwJL/Wd2Vms6Llpp/mzZRSjm089Vd8Y7zqLhjplk6R9A8lGogafhUqqC9yd5Dv+cQFl+z55j/u+494GmwibxiT0s5Lvw9YqSLaYDcmndOSVwsq04F5Ja4tNbkPOXa2/w=,iv:5T0QPjLI57k/WI8amY+p0Uo9Nriw7wm+T67i+AHgXyw=,tag:CeL050jYNUcD6LQ2MUKHMw==,type:str]
     pgp:
         - created_at: "2022-04-30T17:16:50Z"
           enc: |

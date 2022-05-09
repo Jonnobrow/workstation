@@ -1,0 +1,28 @@
+.mozilla
+.cache
+.mypy_cache
+cache
+.local
+venv
+.config/Microsoft* # Teams :(
+.vscode-oss
+.mozilla
+.yarn
+.electron-gyp
+.java
+.cache
+.zoom
+.config/Code\ -\ OSS
+.config/code-oss
+.rbenv
+.minecraft
+.git
+node_modules
+.gradle
+.cisco
+.terraform.d
+.Trash
+Library
+.gradle
+.docker
+.ansible

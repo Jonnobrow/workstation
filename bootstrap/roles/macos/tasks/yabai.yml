@@ -1,16 +1,13 @@
 ---
 - name: "yabai : Ensure sudoers file."
-  file:
-    path: /private/etc/sudoers.d/yabai
-    state: touch
-    owner: root
-
-- name: "yabai : Edit sudoers file."
-  lineinfile:
+  ansible.builtin.copy:
+    content: "{{username}} ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa"
     dest: /private/etc/sudoers.d/yabai
-    state: present
-    line: "{{username}} ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa"
-    validate: visudo -cf %s
+    validate: /usr/sbin/visudo -csf %s
+    owner: root
+  become: yes
+  become_method: sudo
+  become_user: root
 
 - name: Register a variable
   ansible.builtin.shell: brew services list | grep {{ item }}

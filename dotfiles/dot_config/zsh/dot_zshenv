@@ -49,6 +49,8 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:$HOME/Library/Python/3.8/bin"
+export PATH="$PATH:/opt/homebrew/lib/ruby/gems/3.1.0/bin"
+export PATH="$PATH:$CARGO_HOME/bin"
 
 #############
 # Man Pager #
