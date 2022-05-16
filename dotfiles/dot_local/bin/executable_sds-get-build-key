@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Getting Key for $1"
+
+PROJECT=${2:-"skycloud-sds-sa-001"}
+
+gcloud secrets list --filter=$1 --project=$PROJECT | sed '1d' | cut -f1 -d' ' | xargs -I {} gcloud secrets versions access "latest" --secret={} --project=$PROJECT | tee $1-build-key.json

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -euox pipefail
+
+currentBranch=$(git branch --show-current)
+targetBranch=${MTR_TARGET_BRANCH:-"master"}
+incrementType=${MTR_INC_TYPE:-"patch"}
+
+if [[ $1 == "update" ]]; then
+    git pull origin "$targetBranch"
+    echo "You may need to resolve conflicts, once done, commit and run 'sds-mtr merge'"
+elif [[ $1 == "merge" ]]; then
+    git checkout "$targetBranch"
+    git pull
+    git merge --squash "$currentBranch"
+    git commit -a || true
+    latestTag=$(git describe --abbrev=0 --tags)
+    newTag=$(semver -i "$incrementType" "$latestTag")
+    commitMsg=$(git log --format=%B -n 1)
+    git tag -a "$newTag" -m "$commitMsg"
+fi

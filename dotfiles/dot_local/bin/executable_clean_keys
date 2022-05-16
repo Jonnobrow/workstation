@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+[[ "$1" == "" ]] && echo "Usage: $0 [remote.server.com]" && exit 1
+
+ssh-keygen -R $1
+ssh-keyscan -t rsa $1 >> ~/.ssh/known_hosts
+ssh-keyscan -H $1 >> ~/.ssh/known_hosts
+
+echo "You may now check ~/.ssh/known_hosts and optionally cleanup ~/.ssh/known_hosts.old"

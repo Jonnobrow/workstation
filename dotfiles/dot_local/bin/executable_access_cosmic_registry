@@ -1,0 +1,21 @@
+#!/bin/bash -e
+
+if ! curl --version >/dev/null 2>&1; then
+    echo "Error: curl not installed"
+    exit 2
+fi
+
+if ! jq --version >/dev/null 2>&1; then
+    echo "Error: jq not installed"
+    exit 2
+fi
+
+REGISTRY_BASE="http://registry.tools.cosmic.sky/v2"
+registry_url="$REGISTRY_BASE/$1"
+
+auth_url=$(curl -sS --head $registry_url | \
+           sed -ne 's/^Www-Authenticate.*realm="\(.*\)",service="\(.*\)",scope="\(.*\)"/\1\?service=\2\&scope=\3/p' | tr -d '\r')
+
+token=$(curl -sSH "Docker-Distribution-API-Version: registry/2.0" $auth_url | jq -r '. | .token')
+
+curl -sSH "Authorization: Bearer $token" $registry_url | jq .

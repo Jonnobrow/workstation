@@ -1,0 +1,45 @@
+#!/bin/bash
+
+showhelp() {
+    echo "qhosts: Query hiera (sds-dvn-puppet-data) for hosts"
+    echo
+    echo "Usage: $0 [-h] [-f \"<filter_regex>\"] [-d \"<hiera_path>\"] <REGEX>"
+    echo
+    echo "Arguments:"
+    echo "  <REGEX>             The regular expression to query for. Default: '.*'"
+    echo
+    echo "Options:"
+    echo "  -h                  Show this message"
+    echo "  -f <filter_regex>   Filter the hosts by a pattern. Default: '.*'"
+    echo "  -d <hiera_path>     Path to hiera zone files. Default: '$HOME/dirs/proj/work/sds-dvn-puppet-data/zone'"
+    echo
+    echo "Example - Query control plane jenkins in cloud:"
+    echo "  $0 -f \"jenkinsserver.*ctrl\" \".*\.gc\..*\""
+    echo
+    echo "Example - Query all hosts in nlaz2 test:"
+    echo "  $0 \".*\.nlaz2\.test\..*\""
+}
+
+while getopts f:d:h flag
+do
+    case "${flag}" in
+        f) filter=${OPTARG};;
+        d) hiera=${OPTARG};;
+        h) showhelp; exit 0;;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+PREFIX=${hiera:-$HOME/dirs/proj/work/sds-dvn-puppet-data/zone}
+REGEX=${1:-".*"}
+FILTER=${filter:-".*"}
+FILES=$(/usr/bin/find -E $PREFIX -type f -regex "$REGEX" -mindepth 1)
+
+for file in $FILES; do
+    if test -z "$file"; then (>&2 echo "No such file"); return 1; fi
+    if echo $file|/usr/bin/grep -q bskyb.com
+        then DOM=`basename $file|sed -e 's/.yaml$//g'`
+        else DOM=`basename $file|sed -e 's/.yaml$/.bskyb.com/g'`
+    fi
+    cat $file | yq -oj | jq -r '."zone::hosts" | [([path(.[])]|flatten) , [.[].ip]]|transpose | .[]|flatten| "\(.[1])\t\(.[0])"'|awk -v DOM=$DOM '{print $0"."DOM}' | /usr/bin/grep -E "$FILTER"
+done
