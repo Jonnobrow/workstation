@@ -2,6 +2,11 @@
 
 set -euox pipefail
 
+if ! command -v semver > /dev/null; then
+  echo "semver must be installed: yarn global add semver"
+  exit 1
+fi
+
 currentBranch=$(git branch --show-current)
 targetBranch=${MTR_TARGET_BRANCH:-"master"}
 incrementType=${MTR_INC_TYPE:-"patch"}

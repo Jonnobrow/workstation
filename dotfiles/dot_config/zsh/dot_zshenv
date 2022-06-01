@@ -49,7 +49,7 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:$HOME/Library/Python/3.8/bin"
-export PATH="$PATH:/opt/homebrew/lib/ruby/gems/3.1.0/bin"
+export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$PATH:$CARGO_HOME/bin"
 
 #############
@@ -84,3 +84,6 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # GPG #
 #######
 export GPG_TTY=$(tty)
+
+export EYAML_CONFIG=$XDG_CONFIG_HOME/eyaml/config.yaml
+export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
