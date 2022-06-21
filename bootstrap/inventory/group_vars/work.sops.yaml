@@ -33,6 +33,7 @@ homebrew_installed_packages:
     - ENC[AES256_GCM,data:+PBtIJI=,iv:EEZKwrcdQfXTi/wps2gvEBQvqS6l0JMPxetr6bxy2Q4=,tag:vIAzl39gpdUjLxvlZo/Kqg==,type:str]
     - ENC[AES256_GCM,data:1GRpHWk=,iv:iwcjy8Nu7kje38AXfoONB9cwUbdpAoJAP1/nXecwkug=,tag:y21IK5fBh1I/DwAkqLu0tg==,type:str]
     - ENC[AES256_GCM,data:Mg2JoihIBfJYgw==,iv:qU/8Y/ghcPm/DX536N+1k8zkhFZ3+OWCU0GSKDMT57w=,tag:+Cju3rU6MuVSw2GuARC38A==,type:str]
+    - ENC[AES256_GCM,data:zd4Rp7ROETcasOsXb047,iv:jMLkBhGA2qESc+hPVq/P2mOgkPvN9cifv086fJLLS7U=,tag:qW4XRr0ZYMR6SE2GtFynzg==,type:str]
 homebrew_taps:
     - ENC[AES256_GCM,data:a1EAHDO4jpAz8p43Pw==,iv:tEXXhyGfPGPeg2tJ55+AF5A8TkfifOKtyw/iM3ruZEU=,tag:OU8jqiSR+0oCmBMu4sWIzQ==,type:str]
     - ENC[AES256_GCM,data:P/rkb5/6t5n/a1arVg==,iv:nSNiXmZnhU5FgOZNwD/k+bQUPzY9oVFZsr7hMn0VCR4=,tag:5//xEeNV/NnMkiB9EHKg2Q==,type:str]
@@ -62,8 +63,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-05-01T14:43:18Z"
-    mac: ENC[AES256_GCM,data:qM//1GXbDxKcGLNAR9fXdiX3fbltOjvzcNE4FEn7WGHxwJL/Wd2Vms6Llpp/mzZRSjm089Vd8Y7zqLhjplk6R9A8lGogafhUqqC9yd5Dv+cQFl+z55j/u+494GmwibxiT0s5Lvw9YqSLaYDcmndOSVwsq04F5Ja4tNbkPOXa2/w=,iv:5T0QPjLI57k/WI8amY+p0Uo9Nriw7wm+T67i+AHgXyw=,tag:CeL050jYNUcD6LQ2MUKHMw==,type:str]
+    lastmodified: "2022-06-21T19:48:47Z"
+    mac: ENC[AES256_GCM,data:DfYTaTrVFoPBxmdLO6YNWoekhSV7QTXGgjlJD1gtsIeJv3bAXN2MEIGwjcad+IuF/r+PXUwtXR+hIm58dJYd0GjCSDlzJykVrCBt25fGsXw5SSLi43/3YKuPaVdwEUCtdrcoUsnsHWIvX6RnaCWBXTMzhNOQVzRbVCCzVHEkvEQ=,iv:wACKeaOfKeolpkJ04PeSY2Q3O/W4Zma1WS6vWQai/Vs=,tag:z6U95Ri7HzOr81eJOWFHFg==,type:str]
     pgp:
         - created_at: "2022-04-30T17:16:50Z"
           enc: |
@@ -86,4 +87,4 @@ sops:
             -----END PGP MESSAGE-----
           fp: DE99604016EF8893AD54FDE83BC85C121EA96233
     unencrypted_suffix: _unencrypted
-    version: 3.7.2
+    version: 3.7.3
