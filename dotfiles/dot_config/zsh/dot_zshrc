@@ -36,3 +36,7 @@ source_if_exists ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/fuzzy.zsh
 # GCLOUD
 source_if_exists "$XDG_DATA_HOME/google-cloud-sdk/path.zsh.inc"
 source_if_exists "$XDG_DATA_HOME/google-cloud-sdk/completion.zsh.inc"
+
+if command -v direnv > /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
