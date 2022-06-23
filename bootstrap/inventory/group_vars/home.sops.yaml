@@ -19,14 +19,15 @@ arch_installed_packages:
     - ENC[AES256_GCM,data:nA9TG6C2,iv:4GIlN4bA4CQE87jBcdRVVSvVFtTrmPlV7JYW8XpnJOI=,tag:y4xhvm0oWvQVyo9S0HG07g==,type:str]
     - ENC[AES256_GCM,data:JCl9,iv:02TQzkO0kdUtti5zzekr/fCn19erCStrQp2T9LKp9f4=,tag:gqxzZhalfw/aNwdJBVUz0Q==,type:str]
     - ENC[AES256_GCM,data:+0oxyQ==,iv:1JFr4ob7RcwykYq2fMn4WewTFfGcetnZ+lEuR7nZmLg=,tag:cwRtgUwRl7nmGpAkP18Jog==,type:str]
+    - ENC[AES256_GCM,data:kVGbKb6OgfQ=,iv:mYpOqGHwOKt+aiLj35Yt/gJ3W6xD37dZMj4Sb1DELZM=,tag:grl2bccEmRI9FrF1tHP/Rg==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-04-30T17:16:45Z"
-    mac: ENC[AES256_GCM,data:+z+jaasffaiX+Wi0AEn+SExuyXbYJmYv/zyPi7xU1RhOmZQeCXwD3bJIRLaGaXWjpcZlh3a/1Dv5zL7EkDwZvdrHO8+aWXFjITaJXDZZP5ynQ9XotqZat8R1yyw3ixIZWsxDxzku2b2Ak1HNMIOmQZskPPDTV9kxrF1CvtPCJ4c=,iv:+DB8YOY+RD8M/9mVgjyUWog5vEYV98eTiFt+86+F5F4=,tag:SKH5oK+IbWF7By01jWwA/g==,type:str]
+    lastmodified: "2022-06-23T19:46:28Z"
+    mac: ENC[AES256_GCM,data:ME2abqABpFN3iDAz9ltM2j5egqig8wR96sFh6EaYkqfwSZJJ2y3VxxhrQvMp6Bq0JNAH6cuCXStr5hpHJ/0E+E20ulzrojx8aKeCKjPerxiB3Gd/MSeb4IgWcNUQcBdCZdQZRx8zmLt2dMJS8z7/9IeS5NX8K0LWpMsDoOD5NnM=,iv:PHSLebZr8lXqHIi0DBL6FuP7v1opVXFVy/e6Y+8kAFU=,tag:B/z8QwoYnPk3n6wsbRPnhg==,type:str]
     pgp:
         - created_at: "2022-04-30T17:16:43Z"
           enc: |
@@ -49,4 +50,4 @@ sops:
             -----END PGP MESSAGE-----
           fp: DE99604016EF8893AD54FDE83BC85C121EA96233
     unencrypted_suffix: _unencrypted
-    version: 3.7.2
+    version: 3.7.3
