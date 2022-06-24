@@ -25,13 +25,16 @@ source_if_exists ~/.cache/wal/colors-tty.sh
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # FZF
-if [[ ! "$PATH" == *$(brew --prefix)/opt/fzf/bin* ]]; then
-    export PATH="${PATH:+${PATH}:}$(brew --prefix)/opt/fzf/bin"
+if command -v brew > /dev/null; then
+  if [[ ! "$PATH" == *$(brew --prefix)/opt/fzf/bin* ]]; then
+      export PATH="${PATH:+${PATH}:}$(brew --prefix)/opt/fzf/bin"
+  fi
+  [[ $- == *i* ]] && source_if_exists "$(brew --prefix)/opt/fzf/shell/completion.zsh" 2> /dev/null
+  source_if_exists "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+else
+  [[ $- == *i* ]] && source_if_exists "/usr/share/fzf/shell/completion.zsh" 2> /dev/null
+  source_if_exists "/usr/share/fzf/key-bindings.zsh"
 fi
-[[ $- == *i* ]] && source_if_exists "$(brew --prefix)/opt/fzf/shell/completion.zsh" 2> /dev/null
-[[ $- == *i* ]] && source_if_exists "/usr/share/fzf/shell/completion.zsh" 2> /dev/null
-source_if_exists "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
-source_if_exists "/usr/share/fzf/key-bindings.zsh"
 source_if_exists ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/fuzzy.zsh
 # GCLOUD
 source_if_exists "$XDG_DATA_HOME/google-cloud-sdk/path.zsh.inc"
@@ -40,3 +43,5 @@ source_if_exists "$XDG_DATA_HOME/google-cloud-sdk/completion.zsh.inc"
 if command -v direnv > /dev/null; then
   eval "$(direnv hook zsh)"
 fi
+
+export PATH="${PATH:+${PATH}:}$(yarn global bin)"

@@ -29,6 +29,8 @@ node_packages:
   - markdownlint-cli
   - "@fsouza/prettierd"
   - neovim
+  - alex
+  - codespell
 
 ruby_gems:
   - puppet-lint

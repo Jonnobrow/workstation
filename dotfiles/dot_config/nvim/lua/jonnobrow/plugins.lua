@@ -8,7 +8,7 @@ local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nv
 
 -- Wrap bootstrap in a function so that it can be used in multiple places
 local function install_packer()
-  packer_bootstrap = vim.fn.system {
+  vim.fn.system {
     'git',
     'clone',
     '--depth',
@@ -108,8 +108,7 @@ local function spec(use)
     {
       'windwp/nvim-autopairs',
       config = function()
-        -- TODO: Configure Autopairs
-        require('nvim-autopairs').setup()
+        require('jonnobrow.nvim-autopairs').setup()
       end,
     },
     {
@@ -143,18 +142,14 @@ local function spec(use)
       'folke/trouble.nvim',
       requires = 'kyazdani42/nvim-web-devicons',
       config = function()
-        require('trouble').setup {
-          -- TODO: Configure trouble nvim
-        }
+        require('trouble').setup ()
       end,
     },
     {
       'folke/todo-comments.nvim',
       requires = 'nvim-lua/plenary.nvim',
       config = function()
-        require('todo-comments').setup {
-          -- TODO: Configure todo-comments
-        }
+        require('todo-comments').setup()
       end,
     },
     {
@@ -174,8 +169,7 @@ local function spec(use)
         'MunifTanjim/nui.nvim',
       },
       config = function()
-        -- TODO: Configure Neo Tree
-        -- require("jonnobrow.neo-tree").setup()
+        require('jonnobrow.neo-tree').setup()
       end,
     },
     {
@@ -190,7 +184,7 @@ local function spec(use)
         },
       },
       config = function()
-        require("jonnobrow.lualine").setup()
+        require('jonnobrow.lualine').setup()
       end,
     },
     {
@@ -246,8 +240,7 @@ local function spec(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
     config = function()
-      -- TODO: Configure Telescope
-      -- require("jonnobrow.telescope").setup()
+      require("jonnobrow.telescope").setup()
     end,
   }
 

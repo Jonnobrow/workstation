@@ -6,8 +6,6 @@ end
 local lsp_signature = require "lsp_signature"
 local null_ls = require "null-ls"
 
--- local telescope_lsp = require "wb.telescope.lsp"
-
 vim.api.nvim_create_user_command("LspLog", [[exe 'tabnew ' .. luaeval("vim.lsp.get_log_path()")]], {})
 
 require("nvim-lsp-installer").setup {
@@ -145,35 +143,34 @@ end
 
 ---@param bufnr number
 local function buf_set_keymaps(bufnr)
-    local function buf_set_keymap(mode, lhs, rhs)
-        vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true })
-    end
-
-    -- TODO: Redo these with which-key :)
-    buf_set_keymap("n", "<leader>p", vim.lsp.buf.formatting)
-
-    -- Code actions
-    buf_set_keymap("n", "<leader>r", vim.lsp.buf.rename)
-    buf_set_keymap("n", "<space>f", vim.lsp.buf.code_action)
-    buf_set_keymap("v", "<space>f", vim.lsp.buf.range_code_action)
-    buf_set_keymap("n", "<leader>l", find_and_run_codelens)
-
-    -- Movement
-    buf_set_keymap("n", "gD", vim.lsp.buf.declaration)
-    --buf_set_keymap("n", "gd", telescope_lsp.definitions)
-    --buf_set_keymap("n", "gr", telescope_lsp.references)
-    --buf_set_keymap("n", "gbr", telescope_lsp.buffer_references)
-    --buf_set_keymap("n", "gI", telescope_lsp.implementations)
-    --buf_set_keymap("n", "<space>s", telescope_lsp.document_symbols)
-
-    -- Docs
-    buf_set_keymap("n", "K", hover)
-    buf_set_keymap("n", "<M-p>", vim.lsp.buf.signature_help)
-    buf_set_keymap("i", "<M-p>", vim.lsp.buf.signature_help)
-
-
-    --buf_set_keymap("n", "<C-p>ws", telescope_lsp.workspace_symbols)
-    --buf_set_keymap("n", "<C-p>wd", telescope_lsp.workspace_diagnostics)
+    local wk = require("which-key")
+    wk.register({
+	g = {
+	    name = "+goto",
+	    D = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration"},
+	    d = {"<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", "Definitions"},
+	    r = {"<cmd>Trouble lsp_references<cr>", "References"},
+	    I = {"<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", "Implementations"},
+	},
+	["<leader>l"] = {
+	    name = "+lsp",
+	    f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
+	    r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
+	    a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
+	    s = {"<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", "Symbols"},
+	    d = {"<cmd>Trouble workspace_diagnostics<cr>", "Diagnostics"},
+	    ['bd'] = {"<cmd>Trouble document_diagnostics<cr>", "Buffer Diagnostics"}
+	},
+	["<M-p>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
+	K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" }
+    })
+    wk.register({
+	["<leader>la"] = {"<cmd>lua vim.lsp.buf.range_code_action()<cr>", "Code Action"}
+    }, {mode = "v"})
+    wk.register({
+	["<M-p>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" }
+    }, {mode = "i"})
+    -- buf_set_keymap("n", "<leader>l", find_and_run_codelens)
 end
 
 local function common_on_attach(client, bufnr)
@@ -216,6 +213,15 @@ null_ls.setup {
         null_ls.builtins.formatting.prettierd,
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.diagnostics.shellcheck,
+	null_ls.builtins.diagnostics.alex,
+	null_ls.builtins.diagnostics.ansiblelint,
+	null_ls.builtins.diagnostics.codespell,
+	null_ls.builtins.diagnostics.proselint,
+	null_ls.builtins.diagnostics.yamllint,
+	null_ls.builtins.formatting.gofmt,
+	null_ls.builtins.formatting.goimports,
+	null_ls.builtins.formatting.terraform_fmt,
+	null_ls.builtins.hover.dictionary
     },
     on_attach = common_on_attach,
 }

@@ -6,6 +6,7 @@
 
 # Setup a superuser
 - include_tasks: user.yml
+  tags: ["never", "bootstrap"]
 - include_tasks: autologin.yml
 
 # Blacklist kernel modules
