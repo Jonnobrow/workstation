@@ -43,6 +43,7 @@ M.setup = function()
       color_devicons = true,
       winblend = 5,
       set_env = { ['COLORTERM'] = 'truecolor' },
+      -- TODO: Make it prettier
       border = {},
       borderchars = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
       mappings = {

@@ -1,5 +1,7 @@
 local M = {}
 
+-- TODO: Load this config
+
 M.setup = function()
     require("nvim-treesitter.configs").setup {
         ensure_installed = "all",

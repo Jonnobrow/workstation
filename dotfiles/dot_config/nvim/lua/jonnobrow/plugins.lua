@@ -100,6 +100,9 @@ local function spec(use)
       'jghauser/mkdir.nvim',
     },
     {
+      'Pocco81/AbbrevMan.nvim',
+    },
+    {
       'numToStr/Comment.nvim',
       config = function()
         require('Comment').setup()
@@ -142,7 +145,7 @@ local function spec(use)
       'folke/trouble.nvim',
       requires = 'kyazdani42/nvim-web-devicons',
       config = function()
-        require('trouble').setup ()
+        require('trouble').setup()
       end,
     },
     {
@@ -157,6 +160,7 @@ local function spec(use)
       config = function()
         require('which-key').setup {
           -- TODO: Configure Which-key
+	  -- TODO: Binds for window movement
         }
       end,
     },
@@ -240,7 +244,7 @@ local function spec(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
     config = function()
-      require("jonnobrow.telescope").setup()
+      require('jonnobrow.telescope').setup()
     end,
   }
 
