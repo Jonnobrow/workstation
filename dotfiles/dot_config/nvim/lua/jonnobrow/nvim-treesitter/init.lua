@@ -1,7 +1,5 @@
 local M = {}
 
--- TODO: Load this config
-
 M.setup = function()
   require('nvim-treesitter.configs').setup {
     ensure_installed = 'all',
@@ -9,7 +7,7 @@ M.setup = function()
     highlight = { enable = true },
     indent = { enable = true, disable = { 'python', 'yaml', 'tsx' } },
     playground = {
-      enable = true,
+      enable = false,
       disable = {},
       updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
       persist_queries = false, -- Whether the query persists across vim sessions

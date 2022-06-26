@@ -5,7 +5,7 @@ wk.register({
   ['<Esc>'] = { '<C-\\><C-n>', 'Exit Terminal', noremap = true },
 }, { mode = 't' })
 
--- Window Movement Keymaps
+-- Window and Buffer Management Keymaps
 wk.register {
   ['<leader>w'] = {
     name = '+window',
@@ -27,6 +27,8 @@ wk.register {
     ['<'] = { '2<C-w><', 'Decrease width' },
     ['='] = { '<C-w>=', 'Equalize' },
   },
+  ['<leader>q'] = { '<Cmd>wq<cr>', "Save and Quit" },
+  ['<leader>Q'] = { '<Cmd>q!<cr>', "Force Quit (No Save)"}
 }
 
 -- Miscellaneous

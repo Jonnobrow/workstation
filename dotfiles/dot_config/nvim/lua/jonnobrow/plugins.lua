@@ -43,8 +43,17 @@ local function spec(use)
   -- UI and Syntax
   use {
     {
+      'nvim-treesitter/nvim-treesitter',
+      config = function()
+        require('jonnobrow.nvim-treesitter').setup()
+      end,
+    },
+    {
       'glepnir/zephyr-nvim',
-      requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
+      requires = {
+        'nvim-treesitter/nvim-treesitter',
+        opt = true,
+      },
       config = function()
         require 'zephyr'
       end,
