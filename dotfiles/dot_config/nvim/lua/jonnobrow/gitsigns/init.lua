@@ -1,14 +1,22 @@
 local M = {}
-local gs = require('gitsigns')
+local gs = require 'gitsigns'
 
 local next_hunk = function()
-  if vim.wo.diff then return ']c' end
-  vim.schedule(function() gs.next_hunk() end)
+  if vim.wo.diff then
+    return ']c'
+  end
+  vim.schedule(function()
+    gs.next_hunk()
+  end)
   return '<Ignore>'
 end
 local prev_hunk = function()
-  if vim.wo.diff then return '[c' end
-  vim.schedule(function() gs.prev_hunk() end)
+  if vim.wo.diff then
+    return '[c'
+  end
+  vim.schedule(function()
+    gs.prev_hunk()
+  end)
   return '<Ignore>'
 end
 
@@ -29,7 +37,7 @@ M.setup = function()
     signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
     numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
     linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-    word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+    word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
   }
 
   local wk = require 'which-key'

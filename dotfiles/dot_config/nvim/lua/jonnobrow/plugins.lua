@@ -193,7 +193,7 @@ local function spec(use)
       'akinsho/toggleterm.nvim',
       config = function()
         require('toggleterm').setup {
-          direction = "float",
+          direction = 'float',
           insert_mappings = false,
           env = {
             MANPAGER = 'less -X',
@@ -223,6 +223,7 @@ local function spec(use)
     'ray-x/lsp_signature.nvim',
     'jose-elias-alvarez/null-ls.nvim',
     'j-hui/fidget.nvim',
+    'glepnir/lspsaga.nvim',
     {
       'zbirenbaum/neodim',
       requires = { 'nvim-treesitter/nvim-treesitter' },

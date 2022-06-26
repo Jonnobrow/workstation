@@ -48,7 +48,7 @@ M.setup = function()
       winblend = 5,
       set_env = { ['COLORTERM'] = 'truecolor' },
       border = {},
-      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
       mappings = {
         i = {
           ['<C-w>'] = function()

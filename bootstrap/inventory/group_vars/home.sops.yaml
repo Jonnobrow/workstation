@@ -21,14 +21,15 @@ arch_installed_packages:
     - ENC[AES256_GCM,data:+0oxyQ==,iv:1JFr4ob7RcwykYq2fMn4WewTFfGcetnZ+lEuR7nZmLg=,tag:cwRtgUwRl7nmGpAkP18Jog==,type:str]
     - ENC[AES256_GCM,data:kVGbKb6OgfQ=,iv:mYpOqGHwOKt+aiLj35Yt/gJ3W6xD37dZMj4Sb1DELZM=,tag:grl2bccEmRI9FrF1tHP/Rg==,type:str]
     - ENC[AES256_GCM,data:FNfzNUTl9uYRIByg0646pJy+ow==,iv:Q3aFd34GJruqCwxi6fjAnee1b/3d+ckl+HtvlDsUVaI=,tag:WZULAMgtDr2H23/39XmWvg==,type:str]
+    - ENC[AES256_GCM,data:4W3AtJxqH7Wxun3/6iWqmg==,iv:Q2y3k6LminQX2RD2yo5vsSm7PvYHO4LgxAW45Ou/oS4=,tag:GHymMeB6brffy3TT/UenBw==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-06-24T21:14:59Z"
-    mac: ENC[AES256_GCM,data:pv5/NVAJvQrepprR9/nvjst1xfolqDagegYzSovKPlGWqUsmKziOFsOsd6UetJKE69r/FtA/PII0nFWee4ZPu5TUVZ8IplRx/S9x4U6iJppaC0OdYlpQFa1cOu1XpxcJ+NHrcl5yc22zVniukdOAuEksJjBAfxuv3T9IcOLpMHM=,iv:TvS4376BVCb1Vqb0IYU85GCtbVhoBR+7NZq6EReuM6Q=,tag:+uV40GylVMozS6xac66USw==,type:str]
+    lastmodified: "2022-06-26T14:16:54Z"
+    mac: ENC[AES256_GCM,data:ejQDuKyriDn28N0GM39CTrtRPt11ViCZ3G9Z3gmCCvuE8e3mlU2Y7NsqkI6miQK7t5B11+Rr3Xri6/bLd1ShIPmfzA5bTWVDsRk5PUSpyE5eXVsr0SIS//pdiZUK8JGddlHy7NL2sDmWNpd9vChVTc6CuZCK7RhzhbsYbOTUcJI=,iv:f8958Z+0mEIIfKK8ehUPIEkPCif5vowbqbzV/0nSRg4=,tag:TR9ZNGYtSLuGjb7kOV0OPQ==,type:str]
     pgp:
         - created_at: "2022-04-30T17:16:43Z"
           enc: |

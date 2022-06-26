@@ -1,11 +1,11 @@
-local ok, fidget = pcall(require, "fidget")
+local ok, fidget = pcall(require, 'fidget')
 if not ok then
-    return
+  return
 end
 
 fidget.setup {
-    window = {
-        relative = "editor",
-        blend = 10,
-    },
+  window = {
+    relative = 'editor',
+    blend = 10,
+  },
 }
