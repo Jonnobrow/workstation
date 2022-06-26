@@ -159,10 +159,11 @@ local function buf_set_keymaps(bufnr)
 	    a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
 	    s = {"<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", "Symbols"},
 	    d = {"<cmd>Trouble workspace_diagnostics<cr>", "Diagnostics"},
-	    ['bd'] = {"<cmd>Trouble document_diagnostics<cr>", "Buffer Diagnostics"}
+	    ['bd'] = {"<cmd>Trouble document_diagnostics<cr>", "Buffer Diagnostics"},
+	    l = { function() find_and_run_codelens() end, "Code Lens" }
 	},
 	["<M-p>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
-	K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" }
+	K = { function() hover() end , "Hover" }
     })
     wk.register({
 	["<leader>la"] = {"<cmd>lua vim.lsp.buf.range_code_action()<cr>", "Code Action"}
@@ -170,7 +171,6 @@ local function buf_set_keymaps(bufnr)
     wk.register({
 	["<M-p>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" }
     }, {mode = "i"})
-    -- buf_set_keymap("n", "<leader>l", find_and_run_codelens)
 end
 
 local function common_on_attach(client, bufnr)

@@ -13,6 +13,21 @@ M.setup = function()
       file_previewer = require('telescope.previewers').vim_buffer_cat.new,
       grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
       qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+      initial_mode = 'insert',
+      layout_strategy = 'horizontal',
+      layout_config = {
+        horizontal = {
+          prompt_position = 'top',
+          preview_width = 0.55,
+          results_width = 0.8,
+        },
+        vertical = {
+          mirror = false,
+        },
+        width = 0.87,
+        height = 0.80,
+        preview_cutoff = 120,
+      },
       prompt_prefix = '  ',
       selection_caret = '  ',
       selection_strategy = 'reset',
@@ -28,24 +43,12 @@ M.setup = function()
         '--glob=!.git/',
       },
       sorting_strategy = 'descending',
-      layout_strategy = 'flex',
-      layout_config = {
-        horizontal = {
-          preview_cutoff = 0,
-          preview_width = 0.6,
-        },
-        vertical = {
-          preview_cutoff = 0,
-          preview_height = 0.65,
-        },
-      },
       path_display = { truncate = 3 },
       color_devicons = true,
       winblend = 5,
       set_env = { ['COLORTERM'] = 'truecolor' },
-      -- TODO: Make it prettier
       border = {},
-      borderchars = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       mappings = {
         i = {
           ['<C-w>'] = function()
@@ -61,6 +64,7 @@ M.setup = function()
           ['<Tab>'] = actions.toggle_selection + actions.move_selection_next,
           ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_previous,
         },
+        n = { ['q'] = require('telescope.actions').close },
       },
     },
     extensions = {

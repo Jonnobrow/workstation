@@ -158,12 +158,10 @@ local function spec(use)
     {
       'folke/which-key.nvim',
       config = function()
-        require('which-key').setup {
-          -- TODO: Configure Which-key
-	  -- TODO: Binds for window movement
-        }
+        require('which-key').setup()
       end,
     },
+    { 'sindrets/winshift.nvim' },
     {
       'nvim-neo-tree/neo-tree.nvim',
       branch = 'v2.x',
@@ -194,9 +192,8 @@ local function spec(use)
     {
       'akinsho/toggleterm.nvim',
       config = function()
-        -- TODO: Configure toggleterm
         require('toggleterm').setup {
-          direction = float,
+          direction = "float",
           insert_mappings = false,
           env = {
             MANPAGER = 'less -X',

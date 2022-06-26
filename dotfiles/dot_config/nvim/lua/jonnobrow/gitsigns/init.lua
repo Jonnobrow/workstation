@@ -1,4 +1,16 @@
 local M = {}
+local gs = require('gitsigns')
+
+local next_hunk = function()
+  if vim.wo.diff then return ']c' end
+  vim.schedule(function() gs.next_hunk() end)
+  return '<Ignore>'
+end
+local prev_hunk = function()
+  if vim.wo.diff then return '[c' end
+  vim.schedule(function() gs.prev_hunk() end)
+  return '<Ignore>'
+end
 
 M.setup = function()
   require('gitsigns').setup {
@@ -22,8 +34,8 @@ M.setup = function()
 
   local wk = require 'which-key'
   wk.register {
-    [']c'] = { '<cmd>lua require"gitsigns".next_hunk()<CR>', 'Next Hunk', noremap = true },
-    ['[c'] = { '<cmd>lua require"gitsigns".prev_hunk()<CR>', 'Previous Hunk', noremap = true },
+    [']c'] = { next_hunk, 'Next Hunk', noremap = true },
+    ['[c'] = { prev_hunk, 'Previous Hunk', noremap = true },
     ['<leader>g'] = {
       name = '+git',
       a = { '<cmd>lua require"gitsigns".stage_hunk()<CR>', 'Stage Hunk', noremap = true },
@@ -39,7 +51,8 @@ M.setup = function()
         l = { '<cmd>lua require"gitsigns".toggle_linehl()<CR>', 'Toggle Line Highlight', noremap = true },
         w = { '<cmd>lua require"gitsigns".toggle_word_diff()<CR>', 'Toggle Word Diff', noremap = true },
       },
-      D = { '<cmd>lua require"gitsigns".diffthis()<CR>', 'Diff This', noremap = true },
+      d = { '<cmd>lua require"gitsigns".diffthis()<CR>', 'Diff', noremap = true },
+      D = { '<cmd>lua require"gitsigns".diffthis("~")<CR>', 'Diff (HEAD~)', noremap = true },
     },
   }
 end
