@@ -196,7 +196,7 @@ null_ls.setup {
     null_ls.builtins.diagnostics.shellcheck,
     null_ls.builtins.diagnostics.alex,
     null_ls.builtins.diagnostics.ansiblelint,
-    null_ls.builtins.diagnostics.codespell,
+--   null_ls.builtins.diagnostics.codespell,
     null_ls.builtins.diagnostics.proselint,
     null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.formatting.gofmt,
