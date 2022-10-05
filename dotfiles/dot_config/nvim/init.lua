@@ -15,5 +15,8 @@ vim.g.did_load_filetypes = 0
 vim.g.nvcode_termcolors = 256
 vim.g.mapleader = ' '
 vim.o.termguicolors = true
+vim.o.expandtab = true
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
 
 require 'jonnobrow.plugins'
